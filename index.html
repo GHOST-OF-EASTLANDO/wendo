@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wendo's Bible Website</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f5f7;
+            color: #222;
+            line-height: 1.6;
+        }
+        header {
+            background: #17374f;
+            color: #f4f5f7;
+            padding: 25px 20px;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2rem;
+            letter-spacing: 1px;
+        }
+        nav {
+            margin-top: 15px;
+        }
+        nav a {
+            color: #cddbf1;
+            margin: 0 12px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        nav a:hover {
+            color: #ffffff;
+        }
+        .container {
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 30px 20px;
+        }
+        .hero {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+        }
+        .verse-card {
+            background: #edf5ff;
+            border-left: 6px solid #2c74d0;
+            padding: 22px 24px;
+            margin: 24px 0;
+            border-radius: 10px;
+        }
+        .verse-card p {
+            margin: 0;
+            font-size: 1.05rem;
+        }
+        .verse-card small {
+            display: block;
+            margin-top: 10px;
+            color: #40556f;
+        }
+        .search-box {
+            display: grid;
+            gap: 14px;
+            margin-top: 24px;
+        }
+        .search-box input,
+        .search-box select,
+        .search-box button {
+            width: 100%;
+            max-width: 480px;
+            padding: 12px 14px;
+            border-radius: 10px;
+            border: 1px solid #cbd5e1;
+            font-size: 1rem;
+        }
+        .search-box button {
+            background: #2c74d0;
+            color: #ffffff;
+            border: none;
+            cursor: pointer;
+            transition: filter 0.2s ease;
+            width: auto;
+            align-self: start;
+        }
+        .search-box button:hover {
+            filter: brightness(1.04);
+        }
+        .result-item {
+            background: #ffffff;
+            border: 1px solid #d6e0f0;
+            border-radius: 12px;
+            padding: 18px;
+            margin-bottom: 14px;
+        }
+        .result-item .reference {
+            font-weight: 700;
+            color: #17374f;
+            margin-bottom: 10px;
+        }
+        .results p {
+            margin: 0 0 14px;
+            color: #40556f;
+        }
+        mark {
+            background: #fff5b1;
+            color: #17374f;
+        }
+        .search-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            align-items: flex-end;
+        }
+        .search-card {
+            grid-column: 1 / -1;
+        }
+        @media (min-width: 700px) {
+            .grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+        .card {
+            background: #ffffff;
+            padding: 22px;
+            border-radius: 12px;
+            box-shadow: 0 10px 24px rgba(0,0,0,0.06);
+        }
+        .card h2 {
+            margin-top: 0;
+            font-size: 1.2rem;
+            color: #17374f;
+        }
+        .card p {
+            margin: 14px 0 0;
+            color: #2c3f5f;
+        }
+        footer {
+            text-align: center;
+            padding: 18px 20px;
+            color: #5c6f7f;
+            font-size: 0.95rem;
+        }
+        @media (min-width: 700px) {
+            .grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Wendo's Bible Website</h1>
+        <nav>
+            <a href="#read">Read</a>
+            <a href="#verse">Verse of the Day</a>
+            <a href="#plan">Reading Plan</a>
+            <a href="#about">About</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="hero" id="read">
+            <h2>Welcome to the online Bible study space</h2>
+            <p>Explore scripture, follow a reading plan, and find peace in daily devotionals. This homepage is your starting place for Bible reading, prayer, and reflection.</p>
+
+            <div class="verse-card" id="verse">
+                <p>"Your word is a lamp to my feet and a light to my path."</p>
+                <small>Psalm 119:105 (ESV)</small>
+            </div>
+
+            <article class="card search-card">
+                <h2>Search the Bible</h2>
+                <div class="search-box">
+                    <input id="searchInput" type="search" placeholder="Search words, book name, or verse reference" />
+                    <div class="search-actions">
+                        <select id="bookFilter">
+                            <option value="">All Books</option>
+                        </select>
+                        <button id="searchButton">Search</button>
+                    </div>
+                </div>
+                <div class="results" id="results">
+                    <p>Loading scripture data…</p>
+                </div>
+            </article>
+        </section>
+
+        <section class="grid">
+            <article class="card">
+                <h2>Read the Bible</h2>
+                <p>Choose a book and chapter from the Old Testament or New Testament. Use structured pages for Genesis through Revelation.</p>
+            </article>
+            <article class="card" id="plan">
+                <h2>Daily Reading Plan</h2>
+                <p>Start a simple Bible reading plan: one chapter a day, one book a week, or a full year plan. Keep a daily habit and reflect on what you learn.</p>
+            </article>
+            <article class="card">
+                <h2>Search by Topic</h2>
+                <p>Add search or keyword lookup to quickly find verses on faith, hope, love, prayer, and wisdom.</p>
+            </article>
+            <article class="card" id="about">
+                <h2>About this site</h2>
+                <p>This website uses Bible passages and devotional ideas to help visitors engage with scripture. It can be expanded with additional chapters, books, and interactive tools.</p>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <p>Built with HTML and CSS. Add more pages for books, chapters, and verse search.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
